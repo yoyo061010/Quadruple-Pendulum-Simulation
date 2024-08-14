@@ -29,7 +29,7 @@ jobs:
 
       - name: Run simulation
         run: |
-          python simulation.py
+          python quadpendulum.py
           
       - name: Upload simulation results (Optional)
         if: success()
