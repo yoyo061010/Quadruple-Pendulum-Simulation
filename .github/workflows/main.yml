@@ -30,8 +30,13 @@ jobs:
       - name: Run simulation
         run: |
           python workspace_pendulum.py
-  
 
+      - name: Upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: simulation-results
+          path: results.txt
+  
       - name: Notify on failure
         if: failure()
         uses: 8398a7/action-slack@v3
