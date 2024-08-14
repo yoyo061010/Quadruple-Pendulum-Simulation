@@ -9,4 +9,4 @@ Outputs the coordinates of the pendulum's angles (taking 270 degrees on a unit c
 - All Leg length: 100
 - All Mass: 1
 - All Initial angle: 45 degrees 
-- No initial angular velocities
+- All angular velocities: 0
