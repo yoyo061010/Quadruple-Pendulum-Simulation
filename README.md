@@ -10,6 +10,6 @@ Outputs the coordinates of the pendulum's angles (taking 270 degrees on a unit c
 - All Mass: 1
 - All Initial angle: 45 degrees 
 - All angular velocities: 0
-- 
+
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
