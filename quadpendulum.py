@@ -21,6 +21,38 @@ class Simulator(object):
         self.black = (0, 0, 0)
         self.white = (255, 255, 255)
         self.blue = (0, 5, 255)
+    
+    def get_user_input(self):
+        try:
+            num_legs = len(self.leg_lengths)
+
+            print(f"Enter the leg lengths, hit enter to skip (current: {self.leg_lengths}):")
+            for i in range(num_legs):
+                user_input = input(f"Leg {i+1} length: ")
+                if user_input:
+                    self.leg_lengths[i] = float(user_input)
+
+            print(f"Enter the leg masses, hit enter to skip (current: {self.leg_masses}):")
+            for i in range(num_legs):
+                user_input = input(f"Leg {i+1} mass: ")
+                if user_input:
+                    self.leg_masses[i] = float(user_input)
+
+            print(f"Enter the initial angles in degrees, hit enter to skip (current: {[np.degrees(angle) for angle in self.angles]}):")
+            for i in range(num_legs):
+                user_input = input(f"Leg {i+1} angle: ")
+                if user_input:
+                    self.angles[i] = np.radians(float(user_input))
+
+            print(f"Enter the initial angular velocities, hit enter to skip (current: {self.angular_velocities}):")
+            for i in range(num_legs):
+                user_input = input(f"Leg {i+1} angular velocity: ")
+                if user_input:
+                    self.angular_velocities[i] = float(user_input)
+
+            print("User input complete. Simulation ready.")
+        except ValueError as e:
+            print(f"Invalid input: {e}. Please enter numeric values.")
 
     def draw(self):
         self.screen.fill(self.white) 
@@ -128,6 +160,7 @@ class Simulator(object):
         running = True
         font = pygame.font.Font(None, 16)
         simulate = False
+        print("press s key to start")
         while running:
             for event in pygame.event.get():
                 if event.type == QUIT or (event.type == KEYDOWN and event.key in (K_q, K_ESCAPE)):
@@ -153,4 +186,5 @@ class Simulator(object):
 
 if __name__ == "__main__":
     sim = Simulator()
+    sim.get_user_input()
     sim.main()
