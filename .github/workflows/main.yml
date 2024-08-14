@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'  # Replace with your Python version
+          python-version: '3.12' 
 
       - name: Install dependencies
         run: |
@@ -32,9 +32,11 @@ jobs:
           python quadpendulum.py
   
 
-      - name: Notify on failure (Optional)
+      - name: Notify on failure
         if: failure()
-        uses: softprops/slack-success-failure@v4
+        uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
-          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          fields: repo,message,commit,author
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
