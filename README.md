@@ -1,7 +1,7 @@
 # Quadruple-Pendulum-Simulation
 
 ## Overview
-This project simulates a 4-point mass pendulum (Quadruple Pendulum). 
+This project simulates a 4-point mass pendulum (Quadruple Pendulum) using equations of motion obtained by Lagrange Mechanics. 
 ### Quadpendulum.py
 Provides an animated simulation of the quadruple pendulum, allowing users to visualize the dynamic behavior of the system also allow user to edit pendulum properties.
 ### Workspace_pendulum.py
